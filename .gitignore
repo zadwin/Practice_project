@@ -1,4 +1,9 @@
 # 忽略文件
 .*.c
 .*.h
-.*.a
+._LICENSE
+._makefile
+._tests
+a.out.dSYM
+.__MACOSX
+._cJSON
