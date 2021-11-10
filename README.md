@@ -1,6 +1,6 @@
 # Practice_project
     用来学习一些高质量的项目。
-## git命令：
+## 命令git(可以在仓库的下一级)：
 1. 本地项目发布到github中。
     - > 1) 将本地文件家初始化为仓库：git init
     - > 2) 添加文件到本地仓库：git add .
@@ -10,5 +10,8 @@
     - > 6) push 到远程仓库：git push -u origin master
 2. 同步github仓库内容到本地：
     - > 命令一：git pull 将提交到默认分支。
+
+## 文件.gitignore
+
 
 ## cJSON学习项目
