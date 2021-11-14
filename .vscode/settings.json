@@ -93,6 +93,7 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "cjson.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "socket.h": "c"
     }
 }
