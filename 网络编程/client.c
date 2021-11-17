@@ -28,7 +28,8 @@ int main(int argc, char *argv[])
     }
 
     // 第2步：向服务器发起连接请求。
-    struct hostent *h;
+    struct hostent *h; /* 这是一个结构，返回的是主机名，IP地址以及类型等。 */
+    /* 这里获取IP地址的方式有所不同，其主要是通过这个方式，我们可以用来解析域名地址。 */
     if ((h = gethostbyname(argv[1])) == 0) // 指定服务端的ip地址。
     {
         printf("gethostbyname failed.\n");
