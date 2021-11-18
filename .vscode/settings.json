@@ -95,6 +95,9 @@
         "cjson.h": "c",
         "stdio.h": "c",
         "socket.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "stdlib.h": "c",
+        "inet.h": "c",
+        "netdb.h": "c"
     }
 }

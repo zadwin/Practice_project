@@ -4,12 +4,12 @@
  */
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <netdb.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
+#include <unistd.h> // 提供通用的文件、目录、程序及进程操作的函数
+#include <stdlib.h> // stdlib 头文件里包含了C、C++语言的最常用的系统函数
+#include <netdb.h> // 提供设置及获取域名的函数
+#include <sys/types.h> // 数据类型定义
+#include <sys/socket.h> // 提供socket函数及数据结构
+#include <arpa/inet.h>  // 里面包含了一些网络编中需要的头文件,还有一些结构体。提供IP地址转换函数。
 
 int main(int argc, char *argv[])
 {
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
     int clientfd;                             // 客户端的socket。
     int socklen = sizeof(struct sockaddr_in); // struct sockaddr_in的大小
     struct sockaddr_in clientaddr;            // 客户端的地址信息。还没有接收的。
-    /* 这里accept是指从准备好的连接队列中获取一个请求，如果队列为空，accept函数将阻塞等待直到有心的连接才会进行后面的操作。*/
+    /* 这里accept是指从准备好的连接队列中获取一个请求，如果队列为空，accept函数将阻塞等待直到有新的连接才会进行后面的操作。*/
     clientfd = accept(listenfd, (struct sockaddr *)&clientaddr, (socklen_t *)&socklen);
     printf("客户端（%s）已连接。\n", inet_ntoa(clientaddr.sin_addr));
 
