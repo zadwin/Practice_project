@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     printf("监听模式结束。\n");
-    
+
     // 第4步：接受客户端的连接。
     int clientfd;                             // 客户端的socket。
     int socklen = sizeof(struct sockaddr_in); // struct sockaddr_in的大小
