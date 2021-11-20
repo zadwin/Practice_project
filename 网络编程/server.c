@@ -13,6 +13,7 @@
 
 int main(int argc, char *argv[])
 {
+    struct addrinfo a;
     if (argc != 2)
     {
         printf("Using:./server port\nExample:./server 5005\n\n");

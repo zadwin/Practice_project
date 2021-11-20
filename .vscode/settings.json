@@ -98,6 +98,8 @@
         "types.h": "c",
         "stdlib.h": "c",
         "inet.h": "c",
-        "netdb.h": "c"
+        "netdb.h": "c",
+        "csapp.h": "c",
+        "string.h": "c"
     }
 }

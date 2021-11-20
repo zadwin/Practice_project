@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 	    scanf("%s", buffer);
 	    if ((iret = send(sockfd, buffer, strlen(buffer), 0)) <= 0)
 	    {
-	    	perror("send"); 
+	    	perror("send");
 		break;
 	    }
 	    memset(buffer, 0, sizeof(buffer));
