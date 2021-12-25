@@ -182,18 +182,17 @@ VectorXi ball_k_means_Ring(MatrixOur& dataset, MatrixOur& centroids, bool detail
         //update the matrix of centroids
         new_centroids = update_centroids(dataset, cluster_point_index, k, dataset_cols, flag, iteration_counter,
                                          old_centroids);
+
         /*
         // 1、输出测试 验证new_centroids
-        cout << "new_centroids: " << endl;
+        cout << "new_centroids:    "  << iteration_counter << endl;
         cout << new_centroids << endl;
-
 
         // 2、输出测试 flag
         cout << "flag: " << endl;
         cout << flag << endl;
-        exit(0);
-        */
-
+        // exit(0);
+         */
         if (new_centroids != old_centroids) {
             //delta: distance between each center and the previous center
             delta = (((new_centroids - old_centroids).rowwise().squaredNorm())).array().sqrt();
@@ -207,7 +206,7 @@ VectorXi ball_k_means_Ring(MatrixOur& dataset, MatrixOur& centroids, bool detail
             // 2、输出测试 delta
             cout << "delta: " << endl;
             cout << delta << endl;
-            exit(0);
+            // exit(0);
             */
 
             old_centroids = new_centroids;
@@ -228,6 +227,7 @@ VectorXi ball_k_means_Ring(MatrixOur& dataset, MatrixOur& centroids, bool detail
                 }
                 cout << endl;
             }
+
 
             cout << "the_rs: " << endl;
             cout << the_rs << endl;
@@ -338,10 +338,10 @@ VectorXi ball_k_means_Ring(MatrixOur& dataset, MatrixOur& centroids, bool detail
                 }
                 cout << "now_centers: " << endl;
                 cout << now_centers << endl;
-                cout << "num_of_neighbour:" << num_of_neighbour << endl;
+                cout << "num_of_neighbour:" << num_of_neighbour <<  "   " << neighbour_num<< endl;
                 cout << "now_centers_rows: " << now_centers_rows << endl;
                 exit(0);
-                */
+                 */
 
                 judge = true;  // 它就是用来判断是否可以推出迭代的条件。
 
@@ -355,8 +355,7 @@ VectorXi ball_k_means_Ring(MatrixOur& dataset, MatrixOur& centroids, bool detail
                         }
                     }
                 }
-                // 测试judge参数。
-                // cout << "judge: " << judge << endl;
+
                 if (judge) {
                     continue;
                 }
@@ -376,7 +375,7 @@ VectorXi ball_k_means_Ring(MatrixOur& dataset, MatrixOur& centroids, bool detail
                             break;
                         }
                         if (j != now_centers_rows - 1 && temp_dis[now_ball][i] > distance_arr[j - 1] &&
-                            temp_dis[now_ball][i] <= distance_arr[j]) { // 这里可能有问题。
+                            temp_dis[now_ball][i] <= distance_arr[j]) {
                             now_data_index[j - 1].push_back(cluster_point_index[now_ball][i]);
                             break;
                         }
@@ -442,7 +441,6 @@ VectorXi ball_k_means_Ring(MatrixOur& dataset, MatrixOur& centroids, bool detail
                         temp_distance.row(i).minCoeff(&minCol);
                         new_label = clusters_neighbors_index[now_ball][minCol];
                         if (labels[now_data_index[j - 1][i]] != new_label) {
-                            cout << "jinru" << endl;
                             flag(now_ball) = true;
                             flag(new_label) = true;
 
@@ -1212,7 +1210,7 @@ inline MatrixOur initial_centroids(MatrixOur dataset, int k, int random_seed = -
 VectorXi ball_k_means(MatrixOur& dataset, int k, bool isRing = false, bool detail = false,
                       int random_seed = -1, const char* filename = "0") {
     MatrixOur centroids;
-    filename = "dataset/testcentroid.csv";
+    filename = "dataset/centroids_ids2.csv";
     if (filename == "0") {
         centroids = initial_centroids(dataset, k, random_seed);
     }
@@ -1270,10 +1268,10 @@ int main(int argc, char *argv[])
 {
     double start_time, end_time;
     start_time = clock();
-    char fileName[30] = "dataset/test.csv";
+    char fileName[30] = "dataset/ids2.csv";
     // MatrixOur dataset = load_data("dataSet/testSet.txt");
     MatrixOur dataset = load_data(fileName);
-    VectorXi labels = ball_k_means(dataset, 3, true, true);
+    VectorXi labels = ball_k_means(dataset, 4, true, true);
     // cout<<"输出："<<endl<<labels<<endl;  //矩阵可以直接整个输出。
     // 向文件中存入数据
     ofstream outFile;
